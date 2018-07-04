@@ -14,7 +14,8 @@ Create a index.php file with following contents.
 ```php
 <?php 
 
-//Set your mail environment, DEV or PRO
+//Set your mail environment, DEV or PRO, the mail configuration to load is based on this definition.
+//Default is DEV
 define('MAIL_ENV','PRO');
 
 //require the library
