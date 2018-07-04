@@ -3,7 +3,11 @@ A simple PHP library to send mail. Developed on top of popular PHPMailer class l
 
 This library allows you to set up development and production environment to send emails.
 
-### Simple Example
+### Simple Usage
+
+Copy `configs/mail-example.php` to `configs/mail.php`
+
+Edit `configs/mail.php` and set your DEV and PRO email configurations.
 
 Create a index.php file with following contents.
 
