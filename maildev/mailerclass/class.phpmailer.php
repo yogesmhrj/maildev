@@ -175,7 +175,7 @@ class PHPMailer {
    * Hosts will be tried in order.
    * @var string
    */
-  public $Host        = 'mail.doublarddesign.com';
+  public $Host        = 'mail.sabthook.com';
 
   /**
    * Sets the default SMTP server port.
@@ -187,7 +187,7 @@ class PHPMailer {
    * Sets the SMTP HELO of the message (Default is $Hostname).
    * @var string
    */
-  public $Helo        = 'mail.doublarddesign.com';
+  public $Helo        = 'mail.sabthook.com';
 
   /**
    * Sets connection prefix.
@@ -215,7 +215,7 @@ class PHPMailer {
    * Sets SMTP username.
    * @var string
    */
-  public $Username     = 'robertkime@doublarddesign.com';
+  public $Username     = 'info@sabthook.com';
 
   /**
    * Sets SMTP password.
@@ -228,7 +228,7 @@ class PHPMailer {
    * work with the win32 version.
    * @var int
    */
-  public $Timeout      = 10;
+  public $Timeout      = 20;
 
   /**
    * Sets SMTP class debugging on or off.

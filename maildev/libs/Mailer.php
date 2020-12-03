@@ -40,12 +40,11 @@ class Mailer
      */
     private $addressArray = array();
 
+    private $debug = false;
 
     private $mail;
 
     private $mailError = "";
-
-
 
     /**
      * Mailer constructor.
@@ -72,8 +71,7 @@ class Mailer
 
         if(strtolower($this->MAIL_CONFIG['MAIL_DRIVER']) == 'smtp'){
             $this->mail->IsSMTP();
-
-            //$this->mail->SMTPSecure = ($this->MAIL_CONFIG['MAIL_ENCRYPTION'] == 'null')?null:$this->MAIL_CONFIG['MAIL_ENCRYPTION'];
+            $this->mail->SMTPSecure = ($this->MAIL_CONFIG['MAIL_ENCRYPTION'] == 'null')?"":$this->MAIL_CONFIG['MAIL_ENCRYPTION'];
         }
 
         $this->mail->Port = $this->MAIL_CONFIG['MAIL_PORT'];
@@ -207,7 +205,11 @@ class Mailer
     {
         return $this->mailError;
     }
-    
+
+    public function enableDebug($enable = false){
+        $this->mail->SMTPDebug = $enable;
+        $this->debug = $enable;
+    }
     
     /**
      * Sends the mail.
@@ -217,6 +219,13 @@ class Mailer
     public function send(){
         $result = false;
         try {
+
+            if($this->debug){
+                echo "<br/>----------------------------<br/>";
+                echo "SMTP Parameters in use : <br>";
+                print_r($this->MAIL_CONFIG);
+                echo "<br/>----------------------------<br/>";
+            }
         
             /*
              * Set the reply candidate, subject, content and the address for the mail
